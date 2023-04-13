@@ -1,0 +1,14 @@
+kornia==0.6.10
+matplotlib==3.7.1
+numpy==1.23.5
+open3d==0.16.0
+Pillow==9.5.0
+pytorch3d==0.7.3
+pytorch_lightning==1.9.4
+PyYAML==6.0
+six==1.16.0
+tensorboardX==2.6
+timm==0.6.12
+torch==1.13.1
+torchvision==0.14.1
+tqdm==4.64.1

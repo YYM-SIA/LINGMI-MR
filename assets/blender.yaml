@@ -1,0 +1,8 @@
+# Info: YTom, 20211018, Olympus H260
+intrinsics:
+  [[0.5555555555555556, 0, 0.5, 0],
+   [0, 0.5555555555555556, 0.5, 0],
+   [0, 0, 1, 0],
+   [0, 0, 0, 1]]
+radial_distortion: [0, 0, 0]
+tangent_distortion: [0, 0]

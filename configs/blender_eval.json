@@ -1,0 +1,8 @@
+{
+    "log_path": "./lightning_log",
+    "image_path": "/home/ilsr/endodepth/blender_stomach/output/230315_031519",
+    "intrinsic_path": "/home/ilsr/endodepth/blender_stomach/output/230315_031519/param/intrinsic.txt",
+    "ext": ".png",
+    "output_path": "./output",
+    "show": false
+}
