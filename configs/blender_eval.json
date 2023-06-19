@@ -1,7 +1,7 @@
 {
-    "log_path": "./lightning_log",
-    "image_path": "/home/ilsr/endodepth/blender_stomach/output/230315_031519",
-    "intrinsic_path": "/home/ilsr/endodepth/blender_stomach/output/230315_031519/param/intrinsic.txt",
+    "log_path": "lightning_logs\\version_0",
+    "image_path": "D:\\Datasets\\blender_stomach2\\output\\230303_112604\\images",
+    "intrinsic_path": "assets\\blender.yaml",
     "ext": ".png",
     "output_path": "./output",
     "show": false

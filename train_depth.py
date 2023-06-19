@@ -4,6 +4,7 @@ from torch.utils.data import DataLoader
 import pytorch_lightning as pl
 from pytorch_lightning.callbacks.early_stopping import EarlyStopping
 from pytorch_lightning.callbacks import ModelCheckpoint
+from lightning.pytorch.loggers import TensorBoardLogger
 import json
 
 options = EndoDepthOptions()
@@ -27,12 +28,14 @@ if __name__ == "__main__":
     #     num_workers=opt.num_workers, pin_memory=True, drop_last=False
     # )
 
+    logger = TensorBoardLogger(save_dir='.')
     checkpoint = ModelCheckpoint(monitor="train_loss")
     early_stop = EarlyStopping(monitor="train_loss",
                                min_delta=1e-8, patience=5, mode="min",
                                stopping_threshold=1e-4, divergence_threshold=10, verbose=False)
-    trainer = pl.Trainer(gpus=1, max_epochs=opt.num_epochs,
-                         precision=32,                         limit_train_batches=0.2,                         limit_train_batches=0.2,
-                         callbacks=[checkpoint, early_stop])
+    trainer = pl.Trainer(max_epochs=opt.num_epochs,
+                         precision=32, limit_train_batches=0.2,
+                         callbacks=[checkpoint, early_stop],
+                         logger=logger)
     trainer.fit(model, train_loader)
 

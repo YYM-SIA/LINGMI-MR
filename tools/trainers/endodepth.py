@@ -4,6 +4,7 @@ import torch
 import torch.nn.functional as F
 import torch.optim as optim
 from time import time
+import types
 
 import networks.layers as layers
 import networks.losses as LOSSES
@@ -23,6 +24,10 @@ class plEndoDepth(pl.LightningModule):
         super(plEndoDepth, self).__init__()
 
         istest = test is not None and test
+
+        # process options from checkpoint
+        if isinstance(options, dict):
+            options = types.SimpleNamespace(**options)
 
         if not istest:
             # checking height and width are multiples of 32
@@ -137,7 +142,7 @@ class plEndoDepth(pl.LightningModule):
         self.log_dict(losses, True)
         return losses["train_loss"]
 
-    def training_epoch_end(self, outputs):
+    def on_train_epoch_end(self):
         sch = self.lr_schedulers()
         sch.step()
         self.log(f'lr', sch.get_last_lr()[0])
